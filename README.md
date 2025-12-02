@@ -43,7 +43,6 @@ O projeto está pronto para uso, permitindo cadastro, listagem e visualização 
 
 - Cadastro e gerenciamento de clientes, documentos e processos
 - Listagens detalhadas por categoria
-- Dashboard com resumo de totais
 - Estrutura modular e organizada, facilitando futuras melhorias
 - Interface responsiva e intuitiva
 

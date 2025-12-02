@@ -1,0 +1,104 @@
+<div class="lista-container">
+
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th><input type="checkbox" /></th>
+        <th>Cliente</th>
+        <th>Data</th>
+        <th>Email</th>
+        <th>Cidade</th>
+        <th style="width: 40px;"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let c of clientes">
+
+        <td><input type="checkbox" /></td>
+
+        <!-- Nome + Avatar -->
+        <td class="cliente-info">
+          
+          <!-- Avatar -->
+          <div class="avatar">
+            {{
+              (c.nome || c.razaoSocial || '?')
+                .charAt(0)
+                .toUpperCase()
+            }}
+          </div>
+
+          <div class="infos">
+
+            <!-- Nome principal -->
+            <span class="nome">
+              {{ c.nome || c.razaoSocial }}
+            </span>
+
+            <!-- Sub-linha (CPF/CNPJ ou Nome Fantasia) -->
+            <span class="doc">
+
+              <!-- Pessoa Física -->
+              <ng-container *ngIf="c.cpf">
+                {{ formatarDocumento(c) }}
+              </ng-container>
+
+              <!-- Pessoa Jurídica -->
+              <ng-container *ngIf="c.cnpj">
+                <ng-container *ngIf="c.nomeFantasia">
+                  {{ c.nomeFantasia }} — 
+                </ng-container>
+                {{ formatarDocumento(c) }}
+              </ng-container>
+
+              <!-- Caso raro: sem doc -->
+              <ng-container *ngIf="!c.cpf && !c.cnpj">
+                –
+              </ng-container>
+
+            </span>
+
+          </div>
+        </td>
+
+        <!-- 📅 Data: PF usa dataNascimento, PJ usa dataCadastro -->
+        <td>
+          <ng-container *ngIf="c.dataNascimento; else cadastro">
+            {{ c.dataNascimento | date:'dd/MM/yy' }}
+          </ng-container>
+
+          <ng-template #cadastro>
+            {{ c.dataCadastro ? (c.dataCadastro | date:'dd/MM/yy') : '–' }}
+          </ng-template>
+        </td>
+
+        <td>{{ c.email || '–' }}</td>
+        <td>{{ c.cidade || '–' }}</td>
+
+        <!-- Ações -->
+        <td class="acoes">
+          <div class="menu-wrapper" (click)="$event.stopPropagation()">
+
+            <button class="menu-btn" (click)="toggleMenu(c)">⋮</button>
+
+            <div class="menu-opcoes" *ngIf="menuAberto === c">
+              <button (click)="visualizar(c)">👁 Visualizar</button>
+              <button (click)="editar(c)">✏️ Editar</button>
+              <button class="excluir" (click)="excluir(c)">🗑 Excluir</button>
+            </div>
+
+          </div>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div *ngIf="clientes.length === 0" class="vazio">
+    Nenhum cliente cadastrado ainda.
+  </div>
+
+</div>

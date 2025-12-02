@@ -1,0 +1,65 @@
+<h2 mat-dialog-title>{{ data ? 'Editar Documento' : 'Adicionar Documento' }}</h2>
+
+<form [formGroup]="documentoForm" (ngSubmit)="onSubmitDocumento()">
+  <mat-dialog-content class="form-grid">
+
+    <!-- Cliente -->
+    <mat-form-field class="full-width">
+      <mat-label>Cliente</mat-label>
+      <mat-select formControlName="cliente" placeholder="Selecione um cliente">
+        <mat-option *ngFor="let c of clientes" [value]="c.id">
+          {{ c.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="add-client-btn">
+      <button mat-button type="button" (click)="abrirModalCliente()">+ Adicionar novo cliente</button>
+    </div>
+
+    <!-- Processo (FILTRADO PELO CLIENTE) -->
+    <mat-form-field class="full-width">
+      <mat-label>Processo</mat-label>
+      <mat-select formControlName="processo" placeholder="Selecione um processo">
+        <mat-option *ngFor="let p of processosFiltrados" [value]="p.id">
+          {{ p.numeroProcesso }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="add-process-btn">
+      <button mat-button type="button" (click)="abrirModalProcessos()">+ Adicionar novo processo</button>
+    </div>
+
+    <!-- Link / Tipo do Documento -->
+    <div class="two-columns">
+      <mat-form-field>
+        <mat-label>Link do Documento</mat-label>
+        <input matInput formControlName="linkDocumento" placeholder="Informe o link">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tipo do Documento</mat-label>
+        <mat-select formControlName="tipoDocumento">
+          <mat-option *ngFor="let tipo of tiposDocumento" [value]="tipo">
+            {{ tipo }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Observações -->
+    <mat-form-field class="full-width">
+      <mat-label>Observações</mat-label>
+      <textarea matInput formControlName="observacoes" rows="4"></textarea>
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancelarDocumento()">Cancelar</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="documentoForm.invalid">
+      Salvar
+    </button>
+  </mat-dialog-actions>
+</form>

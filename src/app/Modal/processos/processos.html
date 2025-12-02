@@ -1,0 +1,103 @@
+<h2 mat-dialog-title>
+  {{ processoForm.get('id')?.value ? 'Editar Processo' : 'Adicionar Processo' }}
+</h2>
+
+<form [formGroup]="processoForm" (ngSubmit)="onSubmit()">
+
+  <mat-dialog-content class="form-grid">
+
+    <!-- Cliente -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Cliente</mat-label>
+      <mat-select formControlName="cliente">
+        <mat-option *ngFor="let c of clientes" [value]="c.id">
+          {{ c.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="add-client-btn">
+      <button mat-button type="button" (click)="abrirModalCliente()">
+        + Adicionar novo cliente
+      </button>
+    </div>
+
+    <!-- Número do Processo -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Número do Processo</mat-label>
+      <input matInput formControlName="numeroProcesso">
+    </mat-form-field>
+
+    <!-- Tipo / Área -->
+    <div class="two-columns">
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo de Ação</mat-label>
+        <mat-select formControlName="tipoAcao">
+          <mat-option *ngFor="let x of tiposAcao" [value]="x">
+            {{ x }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Área do Direito</mat-label>
+        <mat-select formControlName="areaDireito">
+          <mat-option *ngFor="let x of areasDireito" [value]="x">
+            {{ x }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Status + Comarca -->
+    <div class="two-columns">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option *ngFor="let s of statusProcesso" [value]="s">
+            {{ s }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Comarca & Vara</mat-label>
+        <input matInput formControlName="comarcaVara">
+      </mat-form-field>
+
+    </div>
+
+    <!-- Data + Juiz -->
+    <div class="two-columns">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Data de Distribuição</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dataDistribuicao">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Juiz</mat-label>
+        <input matInput formControlName="juiz">
+      </mat-form-field>
+
+    </div>
+
+    <!-- Observações -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Observações</mat-label>
+      <textarea matInput formControlName="observacoes"></textarea>
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancelar()">Cancelar</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="processoForm.invalid">
+      Salvar
+    </button>
+  </mat-dialog-actions>
+
+</form>

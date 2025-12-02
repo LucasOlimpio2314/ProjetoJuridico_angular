@@ -1,0 +1,182 @@
+<h2 mat-dialog-title>Cadastro de Cliente</h2>
+
+<mat-tab-group [(selectedIndex)]="tabIndex">
+
+  <!-- ================================
+        ABA PESSOA FÍSICA
+  ================================= -->
+  <mat-tab label="Pessoa Física">
+    <form [formGroup]="pfForm" (ngSubmit)="onSubmitPF()">
+
+      <mat-dialog-content class="form-grid">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nome Completo</mat-label>
+          <input matInput formControlName="nome">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>CPF</mat-label>
+          <input matInput formControlName="cpf" placeholder="000.000.000-00">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Data de Nascimento</mat-label>
+          <input matInput type="date" formControlName="dataNascimento">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Telefone</mat-label>
+          <input matInput formControlName="telefone" placeholder="(00) 00000-0000">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>CEP</mat-label>
+          <input matInput formControlName="cep">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Rua / Logradouro</mat-label>
+          <input matInput formControlName="rua">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Número</mat-label>
+          <input matInput formControlName="numero">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Bairro</mat-label>
+          <input matInput formControlName="bairro">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Cidade</mat-label>
+          <input matInput formControlName="cidade">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>UF</mat-label>
+          <input matInput formControlName="uf">
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Observações</mat-label>
+          <textarea matInput formControlName="observacoes"></textarea>
+        </mat-form-field>
+
+      </mat-dialog-content>
+
+      <mat-dialog-actions align="end">
+        <button mat-button type="button" (click)="onCancelar()">Cancelar</button>
+        <button mat-flat-button color="primary" type="submit">
+          {{ labelBotao }}
+        </button>
+      </mat-dialog-actions>
+
+    </form>
+  </mat-tab>
+
+
+
+  <!-- ================================
+        ABA PESSOA JURÍDICA
+  ================================= -->
+  <mat-tab label="Pessoa Jurídica">
+    <form [formGroup]="pjForm" (ngSubmit)="onSubmitPJ()">
+
+      <mat-dialog-content class="form-grid">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Razão Social</mat-label>
+          <input matInput formControlName="razaoSocial">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nome Fantasia</mat-label>
+          <input matInput formControlName="nomeFantasia">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>CNPJ</mat-label>
+          <input matInput formControlName="cnpj" placeholder="00.000.000/0000-00">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Inscrição Estadual</mat-label>
+          <input matInput formControlName="inscricaoEstadual">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nome do Responsável Legal</mat-label>
+          <input matInput formControlName="responsavel">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>CPF do Responsável</mat-label>
+          <input matInput formControlName="cpfResponsavel">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Telefone</mat-label>
+          <input matInput formControlName="telefone">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>CEP</mat-label>
+          <input matInput formControlName="cep">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Rua / Logradouro</mat-label>
+          <input matInput formControlName="rua">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Número</mat-label>
+          <input matInput formControlName="numero">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Bairro</mat-label>
+          <input matInput formControlName="bairro">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Cidade</mat-label>
+          <input matInput formControlName="cidade">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>UF</mat-label>
+          <input matInput formControlName="uf">
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Observações</mat-label>
+          <textarea matInput formControlName="observacoes"></textarea>
+        </mat-form-field>
+
+      </mat-dialog-content>
+
+      <mat-dialog-actions align="end">
+        <button mat-button type="button" (click)="onCancelar()">Cancelar</button>
+        <button mat-flat-button color="primary" type="submit">
+          {{ labelBotao }}
+        </button>
+      </mat-dialog-actions>
+
+    </form>
+  </mat-tab>
+
+</mat-tab-group>

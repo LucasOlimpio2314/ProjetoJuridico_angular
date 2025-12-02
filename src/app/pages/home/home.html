@@ -1,0 +1,90 @@
+<!-- NAVBAR SUPERIOR -->
+<nav class="navbar">
+  <div class="logo">Tech Jurídico</div>
+
+  <div class="nav-buttons">
+    <button 
+      [class.active]="active === 'documentos'" 
+      (click)="abrirModalDocumentos(); setActive('documentos')"
+    >
+      Documentos
+    </button>
+
+    <button 
+      [class.active]="active === 'clientes'" 
+      (click)="abrirModalCliente(); setActive('clientes')"
+    >
+      Clientes
+    </button>
+
+    <button 
+      [class.active]="active === 'processos'" 
+      (click)="abrirModalProcessos(); setActive('processos')"
+    >
+      Processos
+    </button>
+  </div>
+
+  <div class="icons">
+    <span class="fas fa-cog"></span>
+    <span class="fas fa-bell"></span>
+    <span class="fas fa-user"></span>
+  </div>
+</nav>
+
+<!-- SUB NAVBAR (FILTROS) -->
+<div class="sub-navbar">
+  <button 
+    [class.active]="filtroAtivo === 'all'" 
+    (click)="setFiltro('all')"
+  >
+    All
+  </button>
+
+  <button 
+    [class.active]="filtroAtivo === 'clientes'" 
+    (click)="setFiltro('clientes')"
+  >
+    Clientes
+  </button>
+
+  <button 
+    [class.active]="filtroAtivo === 'documentos'" 
+    (click)="setFiltro('documentos')"
+  >
+    Documentos
+  </button>
+
+  <button 
+    [class.active]="filtroAtivo === 'processos'" 
+    (click)="setFiltro('processos')"
+  >
+    Processos
+  </button>
+</div>
+
+<!-- ÁREA DINÂMICA - MICRO FRONT-END INTERNO -->
+<main class="dashboard">
+
+  <ng-container [ngSwitch]="filtroAtivo">
+
+    <!-- ALL -->
+    <!-- <app-dashboard-resumo *ngSwitchCase="'all'"></app-dashboard-resumo> -->
+
+    <!-- CLIENTES -->
+    <app-lista-clientes *ngSwitchCase="'clientes'"></app-lista-clientes>
+
+    <!-- DOCUMENTOS -->
+     <app-lista-documentos *ngSwitchCase="'documentos'"></app-lista-documentos>
+
+    <!-- PROCESSOS -->
+     <app-lista-processos *ngSwitchCase="'processos'"></app-lista-processos>
+
+    <!-- DEFAULT -->
+    <p *ngSwitchDefault>Selecione um filtro</p>
+
+  </ng-container>
+
+</main>
+
+

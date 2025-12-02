@@ -1,0 +1,63 @@
+<div class="top-bar">
+  <input
+    type="text"
+    placeholder="Buscar processo..."
+    [(ngModel)]="busca"
+    (input)="filtrar()"
+  />
+
+  <button mat-flat-button color="primary" (click)="abrirCriar()">
+    + Novo Processo
+  </button>
+</div>
+
+<div class="lista-container">
+
+  <div class="card" *ngFor="let proc of processosFiltrados">
+    
+    <!-- Informações principais -->
+    <div class="info">
+      <h3>{{ proc.numeroProcesso }}</h3>
+
+      <p>
+        <strong>Cliente:</strong>
+        {{ getNomeCliente(proc) }}
+      </p>
+
+      <p>
+        <strong>Ação:</strong>
+        {{ proc.tipoAcao }}
+      </p>
+
+      <p>
+        <strong>Status:</strong>
+        {{ proc.status }}
+      </p>
+
+      <p>
+        <strong>Distribuído em:</strong>
+        {{ proc.dataDistribuicao | date:'dd/MM/yyyy' }}
+      </p>
+    </div>
+
+    <!-- Menu de ações -->
+    <div class="menu-wrapper">
+      
+      <button class="menu-btn" (click)="toggleMenu(proc.id)">
+        ⋮
+      </button>
+
+      <div class="menu" *ngIf="itemAberto === proc.id">
+        <button (click)="visualizar(proc)">👁 Visualizar</button>
+        <button (click)="editar(proc)">✏️ Editar</button>
+        <button class="excluir" (click)="excluir(proc.id)">🗑 Excluir</button>
+      </div>
+
+    </div>
+  </div>
+
+  <p *ngIf="processosFiltrados.length === 0" class="nenhum">
+    Nenhum processo encontrado.
+  </p>
+
+</div>

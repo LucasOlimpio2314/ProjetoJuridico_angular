@@ -1,0 +1,167 @@
+// Variáveis (mesmas do seu tema)
+$background-main: #ffffff;
+$background-card: #f8f9fa;
+$surface-elevated: #ffffff;
+$text-primary: #2c2c2c;
+$text-secondary: #6c757d;
+$text-placeholder: #adb5bd;
+$border-color: #e9ecef;
+$accent-blue: #007bff;
+$accent-hover: #0056b3;
+$input-background: #ffffff;
+$hover-background: #f8f9fa;
+$shadow-light: rgba(0, 0, 0, 0.08);
+
+// Container do modal
+.mat-mdc-dialog-container {
+  background: $background-main !important;
+  color: $text-primary !important;
+  border-radius: 12px !important;
+  width: 80vw !important;
+  max-width: 900px !important;
+  height: 90vh !important;
+  max-height: 90vh !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid $border-color;
+  margin: auto !important;
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+// Título
+h2[mat-dialog-title] {
+  background: $background-card;
+  color: $text-primary;
+  margin: 0;
+  padding: 24px 32px;
+  font-size: 1.375rem;
+  font-weight: 600;
+  border-bottom: 1px solid $border-color;
+  border-radius: 12px 12px 0 0;
+}
+
+// Conteúdo do formulário
+mat-dialog-content {
+  padding: 32px 32px 120px 32px !important;
+  background: $background-main;
+  max-height: calc(90vh - 200px);
+  min-height: calc(90vh - 200px);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar { width: 6px; }
+  &::-webkit-scrollbar-track { background: $background-card; }
+  &::-webkit-scrollbar-thumb {
+    background: $border-color; border-radius: 3px;
+    &:hover { background: $text-placeholder; }
+  }
+}
+
+// Grid do formulário
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+
+  .full-width { grid-column: 1 / -1; }
+
+  // Ajuste para grupos de dois campos
+  .two-columns {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    mat-form-field {
+      flex: 1 1 calc(50% - 10px); // dois por linha
+      min-width: 200px; // evita ficar pequeno demais
+    }
+  }
+
+  .add-client-btn {
+    display: flex;
+    align-items: center;
+    button {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: $accent-blue;
+      &:hover { background: $hover-background; }
+    }
+  }
+}
+
+// Campos do formulário
+.mat-mdc-form-field {
+  width: 100%;
+
+  .mdc-text-field, .mdc-text-field--filled, .mdc-text-field--outlined {
+    background-color: $input-background !important;
+    border-radius: 8px !important;
+    border: 1.5px solid $border-color !important;
+    box-shadow: 0 1px 3px $shadow-light;
+
+    &:hover { border-color: $accent-blue !important; }
+    &.mdc-text-field--focused { border-color: $accent-blue !important; box-shadow: 0 0 0 3px rgba(0,123,255,0.1); }
+
+    .mdc-text-field__input { background-color: transparent !important; }
+  }
+
+  .mat-mdc-form-field-label { color: $text-secondary !important; font-size: 0.9rem; font-weight: 500; }
+  .mat-mdc-input-element {
+    color: $text-primary !important; font-size: 0.95rem;
+    &::placeholder { color: $text-placeholder !important; }
+  }
+
+  &.mat-mdc-form-field-type-mat-textarea {
+    .mdc-text-field { min-height: 120px; }
+    textarea { min-height: 100px; resize: vertical; background-color: transparent !important; line-height: 1.5; }
+  }
+}
+
+// Inputs de data
+input[type="date"] { color-scheme: light; }
+
+// Botões do modal
+mat-dialog-actions {
+  position: absolute !important;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px 32px !important;
+  background: $background-card; border-top: 1px solid $border-color;
+  gap: 16px; border-radius: 0 0 12px 12px; box-shadow: 0 -2px 8px rgba(0,0,0,0.1); z-index: 10;
+
+  button[mat-button] {
+    color: $text-secondary !important; font-weight: 500; padding: 12px 24px; border-radius: 8px; min-width: 100px; border: 1.5px solid $border-color;
+    &:hover { background: $hover-background !important; color: $text-primary !important; }
+  }
+
+  button[mat-flat-button] {
+    background: $accent-blue !important; color: $background-main !important; font-weight: 600; padding: 12px 32px; border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+    &:hover:not(:disabled) { background: $accent-hover !important; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,123,255,0.4); }
+    &:disabled { background: $text-placeholder !important; color: $background-main !important; box-shadow: none; transform: none; }
+  }
+}
+
+// Responsividade
+@media (max-width: 768px) {
+  .mat-mdc-dialog-container { width: 95vw !important; }
+  .form-grid { grid-template-columns: 1fr; gap: 16px; }
+  mat-dialog-content { padding: 24px !important; max-height: 60vh; }
+  h2[mat-dialog-title] { padding: 20px 24px; font-size: 1.25rem; }
+  mat-dialog-actions { padding: 20px 24px !important; }
+}
+
+@media (max-width: 480px) {
+  .mat-mdc-dialog-container { width: 100vw !important; height: 100vh !important; border-radius: 0 !important; margin: 0; }
+  h2[mat-dialog-title], mat-dialog-actions { border-radius: 0; }
+  mat-dialog-content { max-height: calc(100vh - 160px); padding: 20px !important; }
+  mat-dialog-actions { flex-direction: column;
+    button { width: 100%;
+      &[mat-flat-button] { order: -1; margin-bottom: 12px; }
+    }
+  }
+}

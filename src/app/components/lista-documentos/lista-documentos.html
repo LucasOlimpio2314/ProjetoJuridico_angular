@@ -1,0 +1,49 @@
+<div class="lista-container">
+
+  <!-- Barra superior -->
+  <div class="top-bar">
+    <input
+      type="text"
+      placeholder="Buscar documento..."
+      [(ngModel)]="busca"
+      (input)="filtrar()"
+    />
+
+    <button mat-flat-button color="primary" (click)="abrirCriar()">
+      + Novo Documento
+    </button>
+  </div>
+
+  <!-- LISTA -->
+  <div class="lista-wrapper">
+
+    <div *ngFor="let doc of documentosFiltrados" class="item">
+
+      <div class="info">
+        <h3>{{ doc.tipoDocumento }}</h3>
+        <p><strong>Cliente:</strong> {{ doc.clienteNome }}</p>
+        <p><strong>Processo:</strong> {{ doc.numeroProcesso }}</p>
+
+        <a [href]="doc.linkDocumento" target="_blank" class="link-doc">
+          Abrir Documento
+        </a>
+      </div>
+
+      <!-- três pontinhos -->
+      <div class="menu">
+        <button class="menu-btn">⋮</button>
+
+        <div class="menu-options">
+          <button (click)="editar(doc)">Editar</button>
+          <button class="delete" (click)="excluir(doc.id)">Excluir</button>
+        </div>
+      </div>
+
+    </div>
+
+    <p *ngIf="documentosFiltrados.length === 0" class="empty">
+      Nenhum documento encontrado.
+    </p>
+
+  </div>
+</div>

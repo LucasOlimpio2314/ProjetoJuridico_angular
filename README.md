@@ -1,59 +1,66 @@
-# ProjetoJuridico
+# Projeto Jurídico Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.0.
+Projeto de gerenciamento jurídico desenvolvido em Angular, focado em controle de clientes, documentos e processos. Possui dashboards resumidos, listagens detalhadas e estrutura modularizada, tornando a manutenção e expansão mais fáceis.
 
-## Development server
+## 📹 Demonstração do Projeto
 
-To start a local development server, run:
+[Assista ao vídeo demonstrativo](COLE_AQUI_O_LINK_DO_VIDEO)
 
-```bash
-ng serve
-```
+## 🛠 Tecnologias Utilizadas
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Angular 16
+- TypeScript
+- HTML / SCSS
+- Git
+- VSCode
 
-## Code scaffolding
+## 🗂 Estrutura do Projeto
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+O projeto está organizado da seguinte forma:
 
-```bash
-ng generate component component-name
-```
+- `src/app/Modal/cliente` → Cadastro e serviços de clientes
+- `src/app/Modal/documentos` → Cadastro e serviços de documentos
+- `src/app/Modal/processos` → Cadastro e serviços de processos
+- `src/app/components` → Componentes de listas e dashboards
+- `src/app/pages/home` → Página principal com dashboard resumido
+- `src/styles.scss` → Estilos globais
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Cada módulo possui models, services e templates (HTML/SCSS) separados, seguindo boas práticas de Angular.
 
-```bash
-ng generate --help
-```
+## ⚙️ Instalação e Execução
 
-## Building
+1. Clone o repositório.
+2. Entre na pasta do projeto.
+3. Instale as dependências com `npm install`.
+4. Execute o projeto com `ng serve`.
+5. Acesse `http://localhost:4200` no navegador.
 
-To build the project run:
+O projeto está pronto para rodar localmente, com todas as funcionalidades de cadastro, listagem e dashboards.
 
-```bash
-ng build
-```
+## 🚀 Funcionalidades
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Cadastro e listagem de clientes, documentos e processos
+- Dashboard com resumo de totais de cada categoria
+- Componentes reutilizáveis e modularizados
+- Suporte a testes unitários para cada módulo
+- Estrutura organizada para facilitar manutenção e futuras melhorias
 
-## Running unit tests
+## 📖 Documentação das Pastas e Serviços
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+**Clientes:** model `cliente.ts`, serviço `cliente.service.ts` e templates (`.html` / `.scss`)  
+**Documentos:** model `documentos.ts`, serviço `documentos.service.ts` e templates (`.html` / `.scss`)  
+**Processos:** model `processos.ts`, serviço `processos.service.ts` e templates (`.html` / `.scss`)  
+**Componentes de Listagem:** `lista-clientes`, `lista-documentos`, `lista-processos`  
+**Página Principal:** `home.ts` / `.html` / `.scss`, com dashboard resumido de totais
 
-```bash
-ng test
-```
+## 🧪 Testes
 
-## Running end-to-end tests
+Todos os serviços e componentes possuem testes unitários (`.spec.ts`) garantindo qualidade do código.
 
-For end-to-end (e2e) testing, run:
+## 🤝 Contribuição
 
-```bash
-ng e2e
-```
+Pull requests são bem-vindos! Para mudanças maiores, abra uma issue para discutir antes de implementar.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 📜 Licença
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT License

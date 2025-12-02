@@ -1,10 +1,10 @@
 # Projeto Jurídico Angular
 
-Projeto de gerenciamento jurídico desenvolvido em Angular, focado em controle de clientes, documentos e processos. Possui dashboards resumidos, listagens detalhadas e estrutura modularizada, tornando a manutenção e expansão mais fáceis.
+Projeto de gerenciamento jurídico desenvolvido em Angular, focado no controle de clientes, documentos e processos. Possui listagens detalhadas, com uma arquitetura modular que facilita manutenção e expansão.
 
 ## 📹 Demonstração do Projeto
 
-[Assista ao vídeo demonstrativo](COLE_AQUI_O_LINK_DO_VIDEO)
+[Assista ao vídeo demonstrativo](https://drive.google.com/file/d/1pw8IdF9_AL2brVSS35J4TowFClVm5jDk/view?usp=sharing)
 
 ## 🛠 Tecnologias Utilizadas
 
@@ -16,18 +16,20 @@ Projeto de gerenciamento jurídico desenvolvido em Angular, focado em controle d
 
 ## 🗂 Estrutura do Projeto
 
-O projeto está organizado da seguinte forma:
+O projeto está organizado de forma modular:
 
-- `src/app/Modal/cliente` → Cadastro e serviços de clientes
-- `src/app/Modal/documentos` → Cadastro e serviços de documentos
-- `src/app/Modal/processos` → Cadastro e serviços de processos
-- `src/app/components` → Componentes de listas e dashboards
-- `src/app/pages/home` → Página principal com dashboard resumido
-- `src/styles.scss` → Estilos globais
+- **Clientes** (`src/app/Modal/cliente`) → Cadastro e gerenciamento de clientes
+- **Documentos** (`src/app/Modal/documentos`) → Cadastro e gerenciamento de documentos
+- **Processos** (`src/app/Modal/processos`) → Cadastro e gerenciamento de processos
+- **Componentes de Listagem** (`src/app/components`) → Visualização de listas e dashboards
+- **Página Principal** (`src/app/pages/home`) → Dashboard resumido de totais
+- **Estilos Globais** (`src/styles.scss`) → Definição de estilos aplicados em todo o projeto
 
-Cada módulo possui models, services e templates (HTML/SCSS) separados, seguindo boas práticas de Angular.
+Cada módulo possui models, services e templates (HTML/SCSS) separados, seguindo boas práticas de desenvolvimento Angular.
 
 ## ⚙️ Instalação e Execução
+
+Para rodar o projeto localmente:
 
 1. Clone o repositório.
 2. Entre na pasta do projeto.
@@ -35,32 +37,24 @@ Cada módulo possui models, services e templates (HTML/SCSS) separados, seguindo
 4. Execute o projeto com `ng serve`.
 5. Acesse `http://localhost:4200` no navegador.
 
-O projeto está pronto para rodar localmente, com todas as funcionalidades de cadastro, listagem e dashboards.
+O projeto está pronto para uso, permitindo cadastro, listagem e visualização resumida de dados jurídicos.
 
 ## 🚀 Funcionalidades
 
-- Cadastro e listagem de clientes, documentos e processos
-- Dashboard com resumo de totais de cada categoria
-- Componentes reutilizáveis e modularizados
-- Suporte a testes unitários para cada módulo
-- Estrutura organizada para facilitar manutenção e futuras melhorias
+- Cadastro e gerenciamento de clientes, documentos e processos
+- Listagens detalhadas por categoria
+- Dashboard com resumo de totais
+- Estrutura modular e organizada, facilitando futuras melhorias
+- Interface responsiva e intuitiva
 
 ## 📖 Documentação das Pastas e Serviços
 
-**Clientes:** model `cliente.ts`, serviço `cliente.service.ts` e templates (`.html` / `.scss`)  
-**Documentos:** model `documentos.ts`, serviço `documentos.service.ts` e templates (`.html` / `.scss`)  
-**Processos:** model `processos.ts`, serviço `processos.service.ts` e templates (`.html` / `.scss`)  
-**Componentes de Listagem:** `lista-clientes`, `lista-documentos`, `lista-processos`  
-**Página Principal:** `home.ts` / `.html` / `.scss`, com dashboard resumido de totais
-
-## 🧪 Testes
-
-Todos os serviços e componentes possuem testes unitários (`.spec.ts`) garantindo qualidade do código.
+- **Clientes:** model `cliente.ts`, serviço `cliente.service.ts`, templates (`.html` / `.scss`)  
+- **Documentos:** model `documentos.ts`, serviço `documentos.service.ts`, templates (`.html` / `.scss`)  
+- **Processos:** model `processos.ts`, serviço `processos.service.ts`, templates (`.html` / `.scss`)  
+- **Componentes de Listagem:** `lista-clientes`, `lista-documentos`, `lista-processos`  
+- **Página Principal:** `home.ts` / `.html` / `.scss`, com dashboard resumido de totais
 
 ## 🤝 Contribuição
 
 Pull requests são bem-vindos! Para mudanças maiores, abra uma issue para discutir antes de implementar.
-
-## 📜 Licença
-
-MIT License

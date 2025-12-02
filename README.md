@@ -232,9 +232,6 @@ Contribuições são bem-vindas! Para contribuir:
 - Adicione testes para novas funcionalidades
 - Documente funções e classes complexas
 
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
 ## 👨‍💻 Autor
 
@@ -251,13 +248,6 @@ Desenvolvido com ❤️ para gestão jurídica eficiente.
 - [ ] Busca avançada com múltiplos filtros
 - [ ] Histórico de alterações
 - [ ] Backup e restauração de dados
-
-## 📞 Suporte
-
-Para dúvidas, sugestões ou problemas:
-
-- Abra uma [issue](https://github.com/seu-usuario/ProjetoJuridico/issues) no GitHub
-- Entre em contato através do email: [seu-email@exemplo.com]
 
 ---
 
